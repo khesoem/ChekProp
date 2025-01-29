@@ -3,13 +3,13 @@ from io import StringIO
 from unittest.mock import patch, Mock
 from hypothesis import given
 from hypothesis.strategies import *
-from examples.gpiozero_1.src import laser_tripwire
+from examples.gpiozero.apps.app_1.src import laser_tripwire
 
 class TestLaserTripwire(unittest.TestCase):
 
     @given(is_dark=booleans())
     def test_intruder_detection_when_dark(self, is_dark):
-        with patch('examples.gpiozero_1.src.laser_tripwire.LightSensor') as MockLightSensor:
+        with patch('examples.gpiozero.apps.app_1.src.laser_tripwire.LightSensor') as MockLightSensor:
             """
             Test to verify that the INTRUDER is detected when darkness is detected.
             """
