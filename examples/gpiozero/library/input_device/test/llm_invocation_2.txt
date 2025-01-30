@@ -1,0 +1,270 @@
+# Prompt:
+gpiozero is a simple library written in Python as an interface to GPIO devices with Raspberry Pi.
+
+The following is the InputDevice class in gpiozero. You should generate property based tests for this class:
+
+class InputDevice(GPIODevice):
+    """
+    Represents a generic GPIO input device.
+
+    This class extends :class:`GPIODevice` to add facilities common to GPIO
+    input devices.  The constructor adds the optional *pull_up* parameter to
+    specify how the pin should be pulled by the internal resistors. The
+    :attr:`is_active` property is adjusted accordingly so that :data:`True`
+    still means active regardless of the *pull_up* setting.
+
+    :type pin: int or str
+    :param pin:
+        The GPIO pin that the device is connected to. See :ref:`pin-numbering`
+        for valid pin numbers. If this is :data:`None` a :exc:`GPIODeviceError`
+        will be raised.
+
+    :type pull_up: bool or None
+    :param pull_up:
+        If :data:`True`, the pin will be pulled high with an internal resistor.
+        If :data:`False` (the default), the pin will be pulled low.  If
+        :data:`None`, the pin will be floating. As gpiozero cannot
+        automatically guess the active state when not pulling the pin, the
+        *active_state* parameter must be passed.
+
+    :type active_state: bool or None
+    :param active_state:
+        If :data:`True`, when the hardware pin state is ``HIGH``, the software
+        pin is ``HIGH``. If :data:`False`, the input polarity is reversed: when
+        the hardware pin state is ``HIGH``, the software pin state is ``LOW``.
+        Use this parameter to set the active state of the underlying pin when
+        configuring it as not pulled (when *pull_up* is :data:`None`). When
+        *pull_up* is :data:`True` or :data:`False`, the active state is
+        automatically set to the proper value.
+
+    :type pin_factory: Factory or None
+    :param pin_factory:
+        See :doc:`api_pins` for more information (this is an advanced feature
+        which most users can ignore).
+    """
+    def __init__(self, pin=None, *, pull_up=False, active_state=None,
+                 pin_factory=None):
+        super().__init__(pin, pin_factory=pin_factory)
+        try:
+            self.pin.function = 'input'
+            pull = {None: 'floating', True: 'up', False: 'down'}[pull_up]
+            if self.pin.pull != pull:
+                self.pin.pull = pull
+        except:
+            self.close()
+            raise
+
+        if pull_up is None:
+            if active_state is None:
+                raise PinInvalidState(
+                    f'Pin {self.pin.info.name} is defined as floating, but '
+                    f'"active_state" is not defined')
+            self._active_state = bool(active_state)
+        else:
+            if active_state is not None:
+                raise PinInvalidState(
+                    f'Pin {self.pin.info.name} is not floating, but '
+                    f'"active_state" is not None')
+            self._active_state = False if pull_up else True
+        self._inactive_state = not self._active_state
+
+    @property
+    def pull_up(self):
+        """
+        If :data:`True`, the device uses a pull-up resistor to set the GPIO pin
+        "high" by default.
+        """
+        pull = self.pin.pull
+        if pull == 'floating':
+            return None
+        else:
+            return pull == 'up'
+
+    def __repr__(self):
+        try:
+            return (
+                f"<gpiozero.{self.__class__.__name__} object on pin "
+                f"{self.pin!r}, pull_up={self.pull_up}, "
+                f"is_active={self.is_active}>")
+        except:
+            return super().__repr__()
+
+Here are some unit tests for the InputDevice class:
+import sys
+import pytest
+import warnings
+from time import sleep
+from threading import Event
+from functools import partial
+from unittest import mock
+
+from conftest import ThreadedTest
+from gpiozero.pins.mock import MockChargingPin, MockTriggerPin
+from gpiozero.threads import GPIOThread
+from gpiozero import *
+
+
+
+def test_input_initial_values(mock_factory):
+    pin = mock_factory.pin(4)
+    with InputDevice(4, pull_up=True) as device:
+        assert repr(device).startswith('<gpiozero.InputDevice object')
+        assert pin.function == 'input'
+        assert pin.pull == 'up'
+        assert device.pull_up
+    assert repr(device) == '<gpiozero.InputDevice object closed>'
+    with InputDevice(4, pull_up=False) as device:
+        assert pin.pull == 'down'
+        assert not device.pull_up
+
+def test_input_is_active_low(mock_factory):
+    pin = mock_factory.pin(2)
+    with InputDevice(2, pull_up=True) as device:
+        pin.drive_high()
+        assert not device.is_active
+        assert repr(device) == '<gpiozero.InputDevice object on pin GPIO2, pull_up=True, is_active=False>'
+        pin.drive_low()
+        assert device.is_active
+        assert repr(device) == '<gpiozero.InputDevice object on pin GPIO2, pull_up=True, is_active=True>'
+
+def test_input_is_active_high(mock_factory):
+    pin = mock_factory.pin(4)
+    with InputDevice(4, pull_up=False) as device:
+        pin.drive_high()
+        assert device.is_active
+        assert repr(device) == '<gpiozero.InputDevice object on pin GPIO4, pull_up=False, is_active=True>'
+        pin.drive_low()
+        assert not device.is_active
+        assert repr(device) == '<gpiozero.InputDevice object on pin GPIO4, pull_up=False, is_active=False>'
+
+Generate property based tests for the InputDevice class.
+
+
+# Response:
+Property-based testing (PBT) focuses on generating multiple test inputs to ensure that the properties or invariants of the code hold across a wide variety of inputs. In this case, for the `InputDevice` class, we can test the properties such as:
+
+- **Pin state**: The `pin` should always be in a valid state depending on the `pull_up` and `active_state` settings.
+- **`is_active` property**: Whether the device is correctly reporting its active state based on the combination of `pull_up` and pin state.
+- **Representation (`__repr__`)**: The string representation should always reflect the device's state (pin, pull_up, is_active).
+
+Below is a PBT-style test using `hypothesis`, a popular Python library for property-based testing:
+
+```python
+import pytest
+from gpiozero import InputDevice, GPIODeviceError, PinInvalidState
+from hypothesis import given, strategies as st
+from unittest import mock
+
+# Helper strategies to generate valid inputs for the InputDevice class
+@given(
+    pin=st.integers(min_value=0, max_value=40),  # Assume GPIO pins range from 0 to 40
+    pull_up=st.one_of(st.none(), st.booleans()),  # pull_up can be None, True, or False
+    active_state=st.one_of(st.none(), st.booleans()),  # active_state can be None, True, or False
+)
+def test_input_device_properties(mock_factory, pin, pull_up, active_state):
+    # Mock the pin
+    mock_pin = mock_factory.pin(pin)
+    
+    # When pull_up is None, active_state must not be None
+    if pull_up is None and active_state is None:
+        with pytest.raises(PinInvalidState):
+            device = InputDevice(pin, pull_up=pull_up, active_state=active_state)
+        return
+
+    # If pull_up is not None, active_state must be None
+    if pull_up is not None and active_state is not None:
+        with pytest.raises(PinInvalidState):
+            device = InputDevice(pin, pull_up=pull_up, active_state=active_state)
+        return
+
+    # Now create the device
+    device = InputDevice(pin, pull_up=pull_up, active_state=active_state)
+
+    # Property: Pin should be in input mode
+    assert mock_pin.function == 'input'
+
+    # Property: Pull-up state should match the input pull_up value
+    pull_state = {None: 'floating', True: 'up', False: 'down'}[pull_up]
+    assert mock_pin.pull == pull_state
+
+    # Property: Active state should be computed correctly
+    if pull_up is not None:
+        assert device._active_state == (pull_up is False)
+    else:
+        assert device._active_state == bool(active_state)
+
+    # Check is_active against mock pin's state
+    if device._active_state:
+        mock_pin.drive_high()
+        assert device.is_active
+        mock_pin.drive_low()
+        assert not device.is_active
+    else:
+        mock_pin.drive_high()
+        assert not device.is_active
+        mock_pin.drive_low()
+        assert device.is_active
+
+    # Property: __repr__ string should contain the correct pin number and active state
+    assert repr(device).startswith(f"<gpiozero.InputDevice object on pin GPIO{pin}")
+    assert f"pull_up={pull_up}" in repr(device)
+
+    # Close the device
+    device.close()
+    assert repr(device) == '<gpiozero.InputDevice object closed>'
+
+
+@given(
+    pin=st.integers(min_value=0, max_value=40),
+    pull_up=st.booleans(),
+)
+def test_input_device_active_state(mock_factory, pin, pull_up):
+    mock_pin = mock_factory.pin(pin)
+
+    # Test when pull_up is True (active state should be inverted)
+    device = InputDevice(pin, pull_up=pull_up)
+
+    # When pull_up is True, active state should be False (LOW is active)
+    if pull_up:
+        mock_pin.drive_low()
+        assert device.is_active
+        mock_pin.drive_high()
+        assert not device.is_active
+    # When pull_up is False, active state should be True (HIGH is active)
+    else:
+        mock_pin.drive_high()
+        assert device.is_active
+        mock_pin.drive_low()
+        assert not device.is_active
+
+    device.close()
+
+
+@given(
+    pin=st.integers(min_value=0, max_value=40),
+    pull_up=st.one_of(st.none(), st.booleans()),
+    active_state=st.one_of(st.none(), st.booleans()),
+)
+def test_input_device_invalid_state(mock_factory, pin, pull_up, active_state):
+    mock_pin = mock_factory.pin(pin)
+
+    # Check invalid state: if pull_up is None, active_state cannot be None
+    if pull_up is None and active_state is None:
+        with pytest.raises(PinInvalidState):
+            InputDevice(pin, pull_up=pull_up, active_state=active_state)
+
+    # Check invalid state: if pull_up is not None, active_state must be None
+    if pull_up is not None and active_state is not None:
+        with pytest.raises(PinInvalidState):
+            InputDevice(pin, pull_up=pull_up, active_state=active_state)
+```
+
+### Explanation:
+
+1. **`test_input_device_properties`**: Tests the core properties of `InputDevice`, including pin function, pull-up state, active state, and `__repr__`. It handles cases where `pull_up` and `active_state` are either valid or invalid.
+   
+2. **`test_input_device_active_state`**: Tests the `is_active` property based on the `pull_up` configuration. It ensures that the state of the pin (driven high or low) correctly reflects the active state of the device.
+   
+3. **`test_input_device_invalid_state`**: Focuses on testing invalid configurations. It ensures that if `pull_up` is `None`, then `active_state` must be provided, and if `pull_up` is not `None`, `active_state` must be `None`.
+
+These tests will generate random values for the parameters and check if the properties hold for all combinations, ensuring that the class behaves as expected.
