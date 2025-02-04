@@ -13,7 +13,7 @@ from gpiozero.pins.mock import MockFactory
 def test_input_device_properties(pin, pull_up, active_state):
     # Create a MockFactory
     pin_factory = MockFactory()
-    
+
     # If pin is in the range 2 to 3, pull_up must be True
     if pull_up != True and pin in range(2, 4):
         with pytest.raises(Exception):

@@ -1,7 +1,7 @@
 import pytest
 from hypothesis import given
 from hypothesis import strategies as st
-from gpiozero import InputDevice, GPIODevice
+from gpiozero import InputDevice, GPIODevice, Device
 from gpiozero.pins.mock import MockFactory
 
 # Generate a strategy for pins
@@ -13,6 +13,19 @@ bool_or_none = st.one_of(st.booleans(), st.none())
 # Generate a strategy for pins with predefined pull values
 prefixed_pin_strategy = st.integers(min_value=2, max_value=3)
 
+def mock_factory():
+    save_factory = Device.pin_factory
+    Device.pin_factory = MockFactory()
+    try:
+        yield Device.pin_factory
+        # This reset() may seem redundant given we're re-constructing the
+        # factory for each function that requires it but MockFactory (via
+        # LocalFactory) stores some info at the class level which reset()
+        # clears.
+    finally:
+        if Device.pin_factory is not None:
+            Device.pin_factory.reset()
+        Device.pin_factory = save_factory
 
 # Test changing prefixed pull of a pin
 @given(
@@ -21,7 +34,7 @@ prefixed_pin_strategy = st.integers(min_value=2, max_value=3)
     active_state=bool_or_none,
 )
 def test_changing_prefixed_pin_pull(pin, pull_up, active_state):
-    pin_factory = MockFactory()
+    pin_factory = mock_factory()
     # Test initialization raises errors for invalid input combinations
     if pull_up is not True:
         with pytest.raises(Exception):
