@@ -1,15 +1,11 @@
-import pytest
-from gpiozero import InputDevice, GPIODeviceError, PinInvalidState
-from hypothesis import given, strategies as st
-from unittest import mock
-from gpiozero.pins.mock import MockFactory, MockPWMPin
+from gpiozero.pins.mock import MockFactory
 from examples.gpiozero.apps.app_2.src.line_following_robot import LineFollowingRobot
 import time
 
 from gpiozero import *
 
-def test_input_device_properties():
-    # Create a MockFactory
+def test_left_sensor_activation_moves_right_motor():
+    # Create a MockFactory and use it as pin_factory on Device
     Device.pin_factory = MockFactory()
 
     with LineFollowingRobot(Motor(2, 3, enable=4, pwm=False),

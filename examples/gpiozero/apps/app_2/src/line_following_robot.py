@@ -1,5 +1,4 @@
-from gpiozero import Robot, LineSensor, Motor
-from time import sleep
+from gpiozero import Robot, LineSensor
 
 class LineFollowingRobot(Robot):
     def __init__(self, left, right, left_seonsor_pin=17, right_sensor_pin=27, speed=0.65):
