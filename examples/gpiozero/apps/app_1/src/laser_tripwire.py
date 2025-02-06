@@ -1,5 +1,3 @@
-from gpiozero.pins.mock import MockFactory
-from gpiozero import Device
 from gpiozero import LightSensor
 
 """
