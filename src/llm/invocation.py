@@ -2,6 +2,7 @@ import time
 from src.config import llm
 from typing import List
 import json
+import hashlib
 
 class Prompt:
     class Message:
@@ -20,11 +21,11 @@ class Prompt:
         self.sample_size = sample_size
 
     def hash(self):
-        return str(hash(json.dumps(self, default=lambda o: o.__dict__)))
+        return hashlib.md5(str(json.dumps(self, default=lambda o: o.__dict__)).encode('utf-8')).hexdigest()
 
     @staticmethod
     def load_from_json(j):
-        return Prompt([Prompt.Message.load_from_json(j['messages']) for m in j['messages']],
+        return Prompt([Prompt.Message.load_from_json(m) for m in j['messages']],
                       j['temp'],
                       j['sample_size'])
 

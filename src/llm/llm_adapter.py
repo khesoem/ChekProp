@@ -20,7 +20,7 @@ class LLMAdapter:
                         and prompt_hash in f]
 
         if len(cached_files) > 0:
-            with open(cached_files[0], 'r') as f:
+            with open(os.path.join(self.cache_dir, cached_files[0]), 'r') as f:
                 return Invocation.load_from_json(json.load(f))
 
         return None
@@ -33,6 +33,6 @@ class LLMAdapter:
         cached_files = [f for f in os.listdir(self.cache_dir) if os.path.isfile(os.path.join(self.cache_dir, f))
                         and prompt_hash in f]
 
-        cache_file = os.path.join(self.cache_dir, f"{prompt_hash}-rand{len(cached_files)}.json")
+        cache_file = os.path.join(self.cache_dir, f"{prompt_hash}-{len(cached_files)}.json")
         with open(cache_file, 'w') as f:
             json.dump(invocation, f, default=lambda o: o.__dict__)

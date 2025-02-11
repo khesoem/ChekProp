@@ -17,3 +17,5 @@ llm = {
     'valid-models': ['google/gemini-2.0-flash-lite-preview-02-05:free'],
     'max-iterations': 10,
 }
+
+os.environ["PYTHONHASHSEED"] = "0"
