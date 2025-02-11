@@ -15,10 +15,11 @@ class Prompt:
             return Prompt.Message(j['role'], j['content'])
 
     def __init__(self, messages: List[Message], temp: float = llm['default-temp'],
-                 sample_size: int = llm['default-sample-size']):
+                 sample_size: int = llm['default-sample-size'], model: str = llm['default-model']):
         self.messages = messages
         self.temp = temp
         self.sample_size = sample_size
+        self.model = model
 
     def hash(self):
         return hashlib.md5(str(json.dumps(self, default=lambda o: o.__dict__)).encode('utf-8')).hexdigest()

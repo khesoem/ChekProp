@@ -15,7 +15,9 @@ llm = {
     'default-sample-size': 1,
     'default-improvement-iterations': 0,
     'valid-models': ['google/gemini-2.0-flash-lite-preview-02-05:free'],
+    'default-model': 'google/gemini-2.0-flash-lite-preview-02-05:free',
     'max-iterations': 10,
+    'prompt-template-dir': 'prompt_templates',
 }
 
 os.environ["PYTHONHASHSEED"] = "0"

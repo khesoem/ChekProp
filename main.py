@@ -60,6 +60,16 @@ def get_args():
     )
 
     parser.add_argument(
+        "-ss",
+        "--sample_size",
+        type=int,
+        choices=range(1, conf.llm['default-sample-size'] + 1),
+        default=conf.llm['default-sample-size'],
+        help="How many samples should be generated at each invocation",
+        required=False
+    )
+
+    parser.add_argument(
         "-pt",
         "--prompt_type",
         type=PromptType,
@@ -73,7 +83,7 @@ def get_args():
         "-md",
         "--model",
         choices=list(conf.llm['valid-models']),
-        default='google/gemini-2.0-flash-lite-preview-02-05:free',
+        default=conf.llm['default-model'],
         help="Model to be used",
         required=False
     )
@@ -98,18 +108,18 @@ def get_args():
 
     args = parser.parse_args()
 
-    return (args.root_dir, args.src_file, args.src_class, args.test_file, args.test_methods,
-            args.improvement_iterations, args.prompt_type, args.model, args.read_from_cache, args.save_to_cache)
+    return (args.root_dir, args.src_file, args.src_class, args.test_file, args.test_methods, args.improvement_iterations,
+            args.sample_size, args.prompt_type, args.model, args.read_from_cache, args.save_to_cache)
 
 
 def main() -> None:
 
-    (root_dir, src_file, src_class, test_file, test_methods, improvement_iterations, prompt_type, model,
+    (root_dir, src_file, src_class, test_file, test_methods, improvement_iterations, sample_size, prompt_type, model,
         read_from_cache, save_to_cache) = get_args()
 
     logging.info(f"Running with root_dir: {root_dir}, src_file: {src_file}, src_class: {src_class},"
                  f" test_file: {test_file}, test_methods: {test_methods}, prompt_type: {prompt_type},"
-                    f" model: {model}, improvement_iterations: {improvement_iterations},"
+                    f" model: {model}, improvement_iterations: {improvement_iterations}, sample_size: {sample_size},"
                     f" read_from_cache: {read_from_cache}, save_to_cache: {save_to_cache}")
 
     test_generator = TestGenerator(model, improvement_iterations, prompt_type, read_from_cache, save_to_cache)
