@@ -1,9 +1,12 @@
 import argparse
+import json
 import logging
 import src.config as conf
+import os
 from datetime import datetime
 from src.config import PromptType
 from src.tgen.test_generator import TestGenerator
+from src.tgen.test_runner import get_test_results
 
 logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.now()),
                     filemode='a',
@@ -143,8 +146,24 @@ def main() -> None:
     test_generator = TestGenerator(model, improvement_iterations, prompt_type, temp, sample_size,
                                    read_from_cache, save_to_cache)
 
-    with open(output_path, 'w') as f:
+    report_generated_test(output_path, root_dir, src_class, src_file, test_file, test_generator, test_methods)
+
+
+def report_generated_test(output_path, root_dir, src_class, src_file, test_file, test_generator, test_methods):
+    full_output_path = str(os.path.join(root_dir, output_path))
+    test_cmn_filename = f'test_{src_class}_properties_'
+    old_tests = [f for f in os.listdir(full_output_path) if os.path.isfile(os.path.join(full_output_path, f))
+                 and test_cmn_filename in f and f.endswith('.py')]
+
+    test_filename = f'test_{src_class}_properties_{len(old_tests)}.py'
+    generated_test_path = f'{full_output_path}/{test_filename}'
+
+    with open(generated_test_path, 'w') as f:
         f.write(test_generator.generate_pbt(root_dir, src_file, src_class, test_file, test_methods))
+
+    test_result_path = generated_test_path.replace('.py', '_result.txt')
+    with open(test_result_path, 'w') as f:
+        json.dump(get_test_results(generated_test_path), f, indent=4)
 
 if __name__ == "__main__":
     main()

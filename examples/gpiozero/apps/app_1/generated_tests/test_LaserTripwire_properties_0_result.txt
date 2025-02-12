@@ -1,0 +1,127 @@
+{
+    "created": 1739381461.8696947,
+    "duration": 0.6385951042175293,
+    "exitcode": 1,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "passed": 1,
+        "failed": 1,
+        "total": 2,
+        "collected": 2
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py::test_prints_intruder_when_dark",
+                    "type": "Function",
+                    "lineno": 9
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py::test_does_not_print_intruder_when_light",
+                    "type": "Function",
+                    "lineno": 32
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py::test_prints_intruder_when_dark",
+            "lineno": 9,
+            "outcome": "passed",
+            "keywords": [
+                "test_prints_intruder_when_dark",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_LaserTripwire_properties_0.py",
+                "generated_tests",
+                "app_1",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.000576552003622055,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.2268904869997641,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0001382490008836612,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py::test_does_not_print_intruder_when_light",
+            "lineno": 32,
+            "outcome": "failed",
+            "keywords": [
+                "test_does_not_print_intruder_when_light",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_LaserTripwire_properties_0.py",
+                "generated_tests",
+                "app_1",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00012251500447746366,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.2763415490044281,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py",
+                    "lineno": 51,
+                    "message": "AssertionError: assert 'INTRUDER' in ''\n +  where '' = <built-in method getvalue of _io.StringIO object at 0x72611a82beb0>()\n +    where <built-in method getvalue of _io.StringIO object at 0x72611a82beb0> = <_io.StringIO object at 0x72611a82beb0>.getvalue\nFalsifying example: test_does_not_print_intruder_when_light(\n    is_light=False,\n)"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py",
+                        "lineno": 34,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py",
+                        "lineno": 51,
+                        "message": "AssertionError"
+                    }
+                ],
+                "longrepr": "@given(st.booleans())\n>   def test_does_not_print_intruder_when_light(is_light):\n\nexamples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py:34: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nis_light = False\n\n    @given(st.booleans())\n    def test_does_not_print_intruder_when_light(is_light):\n        \"\"\"\n        Property: When the light sensor is 'light', the 'INTRUDER' message is not printed.\n        \"\"\"\n        Device.pin_factory = MockFactory()\n        with LaserTripwire(7) as ltw:\n            with patch('sys.stdout', new_callable=StringIO) as f:\n    \n                # Set the sensor to light (default state, no activation)\n                if is_light:\n                    pass # do nothing as the mock library initialized to light state\n    \n                sleep(0.1)\n    \n                if is_light:\n                    assert \"INTRUDER\" not in f.getvalue()\n                else:\n>                   assert \"INTRUDER\" in f.getvalue() # when in dark state it print\nE                   AssertionError: assert 'INTRUDER' in ''\nE                    +  where '' = <built-in method getvalue of _io.StringIO object at 0x72611a82beb0>()\nE                    +    where <built-in method getvalue of _io.StringIO object at 0x72611a82beb0> = <_io.StringIO object at 0x72611a82beb0>.getvalue\nE                   Falsifying example: test_does_not_print_intruder_when_light(\nE                       is_light=False,\nE                   )\n\nexamples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_0.py:51: AssertionError"
+            },
+            "teardown": {
+                "duration": 0.00015621300553902984,
+                "outcome": "passed"
+            }
+        }
+    ]
+}
