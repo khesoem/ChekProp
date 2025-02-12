@@ -36,6 +36,13 @@ def get_args():
     )
 
     parser.add_argument(
+        "-op",
+        "--output_path",
+        help="Path to the output test file",
+        required=True
+    )
+
+    parser.add_argument(
         "-tf",
         "--test_file",
         help="Path to the sample unit test file",
@@ -66,6 +73,15 @@ def get_args():
         choices=range(1, conf.llm['default-sample-size'] + 1),
         default=conf.llm['default-sample-size'],
         help="How many samples should be generated at each invocation",
+        required=False
+    )
+
+    parser.add_argument(
+        "-tr",
+        "--temperature",
+        type=float,
+        default=conf.llm['default-temp'],
+        help="The temperature to be used",
         required=False
     )
 
@@ -108,22 +124,27 @@ def get_args():
 
     args = parser.parse_args()
 
-    return (args.root_dir, args.src_file, args.src_class, args.test_file, args.test_methods, args.improvement_iterations,
-            args.sample_size, args.prompt_type, args.model, args.read_from_cache, args.save_to_cache)
+    return (args.root_dir, args.src_file, args.src_class, args.output_path, args.test_file, args.test_methods,
+            args.improvement_iterations, args.sample_size, args.temperature, args.prompt_type, args.model,
+            args.read_from_cache, args.save_to_cache)
 
 
 def main() -> None:
 
-    (root_dir, src_file, src_class, test_file, test_methods, improvement_iterations, sample_size, prompt_type, model,
-        read_from_cache, save_to_cache) = get_args()
+    (root_dir, src_file, src_class, output_path, test_file, test_methods, improvement_iterations, sample_size, temp,
+        prompt_type, model, read_from_cache, save_to_cache) = get_args()
 
     logging.info(f"Running with root_dir: {root_dir}, src_file: {src_file}, src_class: {src_class},"
-                 f" test_file: {test_file}, test_methods: {test_methods}, prompt_type: {prompt_type},"
-                    f" model: {model}, improvement_iterations: {improvement_iterations}, sample_size: {sample_size},"
+                    f" output_path: {output_path}, test_file: {test_file}, test_methods: {test_methods},"
+                    f" improvement_iterations: {improvement_iterations}, sample_size: {sample_size},"
+                    f" temperature: {temp}, prompt_type: {prompt_type}, model: {model},"
                     f" read_from_cache: {read_from_cache}, save_to_cache: {save_to_cache}")
 
-    test_generator = TestGenerator(model, improvement_iterations, prompt_type, read_from_cache, save_to_cache)
-    print(test_generator.generate_pbt(root_dir, src_file, src_class, test_file, test_methods))
+    test_generator = TestGenerator(model, improvement_iterations, prompt_type, temp, sample_size,
+                                   read_from_cache, save_to_cache)
+
+    with open(output_path, 'w') as f:
+        f.write(test_generator.generate_pbt(root_dir, src_file, src_class, test_file, test_methods))
 
 if __name__ == "__main__":
     main()

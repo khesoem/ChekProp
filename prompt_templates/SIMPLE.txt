@@ -1,18 +1,18 @@
 gpiozero is a simple library written in Python as an interface to GPIO devices with Raspberry Pi.
 
-The following is the {class-name} class in gpiozero. You should generate property based tests for this class:
+The following is the {class_name} class from the {module_name} module, which uses the gpiozero library. You should generate property based tests for this class:
 
 ```python
-{class-code}
+{class_code}
 ```
 
-Here are some unit tests for the {class-name} class:
+Here are some unit tests for the {class_name} class:
 
 ```python
-{unittest-code}
+{unittests_code}
 ```
 
-To generate property based tests for the {class-name} class, you should mock the pin factory as follows:
+To generate property based tests for the {class_name} class, you should mock the pin factory as follows:
 
 ```python
 def test_propertyX():
@@ -20,7 +20,7 @@ def test_propertyX():
     Device.pin_factory = MockFactory(pin_class=MockPWMPin)
 ```
 
-Generate property based tests for the {class-name} class according to the following steps:
+Generate property based tests for the {class_name} class according to the following steps:
 1- Based on the class code and comments, extract the properties of the class.
 2- Use the unit tests to understand the behavior of the class.
 3- Based on the extracted properties and your understanding of the class behavior, use the hypothesis library to generate property based tests. In your tests, mock the pin factory as shown in the example above.

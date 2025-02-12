@@ -33,6 +33,10 @@ class LLMAdapter:
         cached_files = [f for f in os.listdir(self.cache_dir) if os.path.isfile(os.path.join(self.cache_dir, f))
                         and prompt_hash in f]
 
+        if len(cached_files) > 0 and self.read_from_cache:
+            # It is already loaded from cache, no reason to save it again
+            return
+
         cache_file = os.path.join(self.cache_dir, f"{prompt_hash}-{len(cached_files)}.json")
         with open(cache_file, 'w') as f:
             json.dump(invocation, f, default=lambda o: o.__dict__)
