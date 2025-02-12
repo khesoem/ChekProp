@@ -20,3 +20,4 @@
 cache/
 .hypothesis/
 logs/
+generated_tests/
