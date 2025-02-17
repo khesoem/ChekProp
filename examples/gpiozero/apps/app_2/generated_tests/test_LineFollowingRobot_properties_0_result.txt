@@ -1,0 +1,126 @@
+{
+    "created": 1739791294.2616456,
+    "duration": 0.3320438861846924,
+    "exitcode": 3,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "failed": 1,
+        "passed": 1,
+        "total": 2,
+        "collected": 2
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py::test_motor_control_based_on_sensor_values",
+                    "type": "Function",
+                    "lineno": 24
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py::test_stop_method_clears_resources",
+                    "type": "Function",
+                    "lineno": 47
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py::test_motor_control_based_on_sensor_values",
+            "lineno": 24,
+            "outcome": "failed",
+            "keywords": [
+                "test_motor_control_based_on_sensor_values",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "_hypothesis_internal_settings_applied",
+                "test_LineFollowingRobot_properties_0.py",
+                "generated_tests",
+                "app_2",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0006950490060262382,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.1670282419945579,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py",
+                    "lineno": 34,
+                    "message": "AttributeError: 'MockPWMPin' object has no attribute 'drive'\nFalsifying example: test_motor_control_based_on_sensor_values(\n    left_sensor_value=0,\n    right_sensor_value=0,\n    speed=0.0,\n)"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py",
+                        "lineno": 26,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py",
+                        "lineno": 34,
+                        "message": "AttributeError"
+                    }
+                ],
+                "longrepr": "@settings(max_examples=50)\n>   @given(\n        left_sensor_value=st.integers(min_value=0, max_value=1),\n        right_sensor_value=st.integers(min_value=0, max_value=1),\n        speed=st.floats(min_value=0.0, max_value=1.0)\n    )\n\nexamples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py:26: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nleft_sensor_value = 0, right_sensor_value = 0, speed = 0.0\n\n    @settings(max_examples=50)\n    @given(\n        left_sensor_value=st.integers(min_value=0, max_value=1),\n        right_sensor_value=st.integers(min_value=0, max_value=1),\n        speed=st.floats(min_value=0.0, max_value=1.0)\n    )\n    def test_motor_control_based_on_sensor_values(left_sensor_value, right_sensor_value, speed):\n        Device.pin_factory = MockFactory(pin_class=MockPWMPin)\n        with LineFollowingRobot(Motor(2, 3, enable=4, pwm=False), Motor(5, 6, enable=7, pwm=False), left_seonsor_pin=8, right_sensor_pin=9, speed=speed) as lfr:\n>           lfr.left_sensor.pin.drive(left_sensor_value)\nE           AttributeError: 'MockPWMPin' object has no attribute 'drive'\nE           Falsifying example: test_motor_control_based_on_sensor_values(\nE               left_sensor_value=0,\nE               right_sensor_value=0,\nE               speed=0.0,\nE           )\n\nexamples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py:34: AttributeError"
+            },
+            "teardown": {
+                "duration": 0.00015598299796693027,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_2/generated_tests/test_LineFollowingRobot_properties_0.py::test_stop_method_clears_resources",
+            "lineno": 47,
+            "outcome": "passed",
+            "keywords": [
+                "test_stop_method_clears_resources",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_settings_applied",
+                "test_LineFollowingRobot_properties_0.py",
+                "generated_tests",
+                "app_2",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0001386399962939322,
+                "outcome": "passed"
+            }
+        }
+    ],
+    "warnings": [
+        {
+            "message": "A plugin raised an exception during an old-style hookwrapper teardown.\nPlugin: 128386854846416, Hook: pytest_runtest_makereport\nKeyError: 'call'\nFor more information see https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluggyTeardownRaisedWarning",
+            "category": "PluggyTeardownRaisedWarning",
+            "when": "runtest",
+            "filename": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/runner.py",
+            "lineno": 244
+        }
+    ]
+}

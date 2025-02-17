@@ -1,0 +1,232 @@
+{
+    "created": 1739793077.863032,
+    "duration": 0.41242289543151855,
+    "exitcode": 1,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "failed": 4,
+        "total": 4,
+        "collected": 4
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_initialization_leds_off",
+                    "type": "Function",
+                    "lineno": 1373
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_leds_value_proportional_to_number",
+                    "type": "Function",
+                    "lineno": 1373
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_stop_playing_sets_playing_to_false",
+                    "type": "Function",
+                    "lineno": 1373
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_exit_turns_leds_off",
+                    "type": "Function",
+                    "lineno": 1373
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_initialization_leds_off",
+            "lineno": 1373,
+            "outcome": "failed",
+            "keywords": [
+                "test_initialization_leds_off",
+                "is_hypothesis_test",
+                "hypothesis",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_settings_applied",
+                "test_PresenceIndicator_properties_0.py",
+                "generated_tests",
+                "app_6",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0006041740125510842,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00028583401581272483,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/usr/lib/python3.10/unittest/mock.py",
+                    "lineno": 1376,
+                    "message": "hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments"
+                },
+                "traceback": [
+                    {
+                        "path": "/usr/lib/python3.10/unittest/mock.py",
+                        "lineno": 1376,
+                        "message": "InvalidArgument"
+                    }
+                ],
+                "longrepr": "arguments = (), kwargs = {}\n\n    @wraps(func)\n    def patched(*args, **keywargs):\n>       with self.decoration_helper(patched,\n                                    args,\n                                    keywargs) as (newargs, newkeywargs):\nE                                   hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments\n\n/usr/lib/python3.10/unittest/mock.py:1376: InvalidArgument"
+            },
+            "teardown": {
+                "duration": 0.00020411799778230488,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_leds_value_proportional_to_number",
+            "lineno": 1373,
+            "outcome": "failed",
+            "keywords": [
+                "test_leds_value_proportional_to_number",
+                "is_hypothesis_test",
+                "hypothesis",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_settings_applied",
+                "test_PresenceIndicator_properties_0.py",
+                "generated_tests",
+                "app_6",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00012191900168545544,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0002757490146905184,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/usr/lib/python3.10/unittest/mock.py",
+                    "lineno": 1376,
+                    "message": "hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments"
+                },
+                "traceback": [
+                    {
+                        "path": "/usr/lib/python3.10/unittest/mock.py",
+                        "lineno": 1376,
+                        "message": "InvalidArgument"
+                    }
+                ],
+                "longrepr": "arguments = (), kwargs = {}\n\n    @wraps(func)\n    def patched(*args, **keywargs):\n>       with self.decoration_helper(patched,\n                                    args,\n                                    keywargs) as (newargs, newkeywargs):\nE                                   hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments\n\n/usr/lib/python3.10/unittest/mock.py:1376: InvalidArgument"
+            },
+            "teardown": {
+                "duration": 0.00019795401021838188,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_stop_playing_sets_playing_to_false",
+            "lineno": 1373,
+            "outcome": "failed",
+            "keywords": [
+                "test_stop_playing_sets_playing_to_false",
+                "is_hypothesis_test",
+                "hypothesis",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_settings_applied",
+                "test_PresenceIndicator_properties_0.py",
+                "generated_tests",
+                "app_6",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00015912498929537833,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0002877659862861037,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/usr/lib/python3.10/unittest/mock.py",
+                    "lineno": 1376,
+                    "message": "hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments"
+                },
+                "traceback": [
+                    {
+                        "path": "/usr/lib/python3.10/unittest/mock.py",
+                        "lineno": 1376,
+                        "message": "InvalidArgument"
+                    }
+                ],
+                "longrepr": "arguments = (), kwargs = {}\n\n    @wraps(func)\n    def patched(*args, **keywargs):\n>       with self.decoration_helper(patched,\n                                    args,\n                                    keywargs) as (newargs, newkeywargs):\nE                                   hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments\n\n/usr/lib/python3.10/unittest/mock.py:1376: InvalidArgument"
+            },
+            "teardown": {
+                "duration": 0.00023085600696504116,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_6/generated_tests/test_PresenceIndicator_properties_0.py::test_exit_turns_leds_off",
+            "lineno": 1373,
+            "outcome": "failed",
+            "keywords": [
+                "test_exit_turns_leds_off",
+                "is_hypothesis_test",
+                "hypothesis",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_settings_applied",
+                "test_PresenceIndicator_properties_0.py",
+                "generated_tests",
+                "app_6",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0001294169924221933,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00029344300855882466,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/usr/lib/python3.10/unittest/mock.py",
+                    "lineno": 1376,
+                    "message": "hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments"
+                },
+                "traceback": [
+                    {
+                        "path": "/usr/lib/python3.10/unittest/mock.py",
+                        "lineno": 1376,
+                        "message": "InvalidArgument"
+                    }
+                ],
+                "longrepr": "arguments = (), kwargs = {}\n\n    @wraps(func)\n    def patched(*args, **keywargs):\n>       with self.decoration_helper(patched,\n                                    args,\n                                    keywargs) as (newargs, newkeywargs):\nE                                   hypothesis.errors.InvalidArgument: positional arguments to @given are not supported with varargs, varkeywords, positional-only, or keyword-only arguments\n\n/usr/lib/python3.10/unittest/mock.py:1376: InvalidArgument"
+            },
+            "teardown": {
+                "duration": 0.00022238201927393675,
+                "outcome": "passed"
+            }
+        }
+    ]
+}

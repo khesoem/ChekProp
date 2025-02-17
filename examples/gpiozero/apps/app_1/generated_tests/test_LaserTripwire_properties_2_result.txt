@@ -1,0 +1,30 @@
+{
+    "created": 1739388215.2306752,
+    "duration": 0.16298508644104004,
+    "exitcode": 2,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "total": 0,
+        "collected": 0
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_2.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_2.py",
+            "outcome": "failed",
+            "result": [],
+            "longrepr": "ImportError while importing test module '/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_2.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nexamples/gpiozero/apps/app_1/generated_tests/test_LaserTripwire_properties_2.py:4: in <module>\n    from src.laser_tripwire import LaserTripwire  # Assuming the code is in src.laser_tripwire\nE   ModuleNotFoundError: No module named 'src.laser_tripwire'"
+        }
+    ],
+    "tests": []
+}

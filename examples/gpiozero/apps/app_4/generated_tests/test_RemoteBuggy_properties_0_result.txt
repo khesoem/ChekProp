@@ -1,0 +1,82 @@
+{
+    "created": 1739792517.3202488,
+    "duration": 117.9835422039032,
+    "exitcode": 2,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "passed": 1,
+        "total": 1,
+        "collected": 5
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_forward_button_press_sets_motor_speeds",
+                    "type": "Function",
+                    "lineno": 31
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_backward_button_press_sets_motor_speeds",
+                    "type": "Function",
+                    "lineno": 52
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_left_button_press_sets_motor_speeds",
+                    "type": "Function",
+                    "lineno": 71
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_right_button_press_sets_motor_speeds",
+                    "type": "Function",
+                    "lineno": 96
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_no_button_press_stops_motors",
+                    "type": "Function",
+                    "lineno": 118
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/apps/app_4/generated_tests/test_RemoteBuggy_properties_0.py::test_forward_button_press_sets_motor_speeds",
+            "lineno": 31,
+            "outcome": "passed",
+            "keywords": [
+                "test_forward_button_press_sets_motor_speeds",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_RemoteBuggy_properties_0.py",
+                "generated_tests",
+                "app_4",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0006369719922076911,
+                "outcome": "passed"
+            }
+        }
+    ]
+}

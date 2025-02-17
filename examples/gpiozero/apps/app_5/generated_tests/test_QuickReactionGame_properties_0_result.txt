@@ -1,0 +1,250 @@
+{
+    "created": 1739792922.163274,
+    "duration": 16.44528365135193,
+    "exitcode": 1,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "collected": 6
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_player_names_printed_on_win",
+                    "type": "Function",
+                    "lineno": 33
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_before_start_round",
+                    "type": "Function",
+                    "lineno": 41
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_after_valid_press[left]",
+                    "type": "Function",
+                    "lineno": 46
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_after_valid_press[right]",
+                    "type": "Function",
+                    "lineno": 46
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_led_on_off_in_start_round",
+                    "type": "Function",
+                    "lineno": 62
+                },
+                {
+                    "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_start_round_sets_buttons_valid",
+                    "type": "Function",
+                    "lineno": 66
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_player_names_printed_on_win",
+            "lineno": 33,
+            "outcome": "passed",
+            "keywords": [
+                "test_player_names_printed_on_win",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.002088512002956122,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.000642161990981549,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.00013864698121324182,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_before_start_round",
+            "lineno": 41,
+            "outcome": "passed",
+            "keywords": [
+                "test_buttons_invalid_before_start_round",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0012386339949443936,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0003350289771333337,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.00016158699872903526,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_after_valid_press[left]",
+            "lineno": 46,
+            "outcome": "passed",
+            "keywords": [
+                "test_buttons_invalid_after_valid_press[left]",
+                "parametrize",
+                "pytestmark",
+                "left",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0013854520220775157,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00047141200047917664,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0001305030018556863,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_buttons_invalid_after_valid_press[right]",
+            "lineno": 46,
+            "outcome": "passed",
+            "keywords": [
+                "test_buttons_invalid_after_valid_press[right]",
+                "parametrize",
+                "pytestmark",
+                "right",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0012681180087383837,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0005749140109401196,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.00013443100033327937,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_led_on_off_in_start_round",
+            "lineno": 62,
+            "outcome": "passed",
+            "keywords": [
+                "test_led_on_off_in_start_round",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0012393450015224516,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 8.220046572008869,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0002780220238491893,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py::test_start_round_sets_buttons_valid",
+            "lineno": 66,
+            "outcome": "failed",
+            "keywords": [
+                "test_start_round_sets_buttons_valid",
+                "test_QuickReactionGame_properties_0.py",
+                "generated_tests",
+                "app_5",
+                "apps",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.001568715990288183,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 8.021084755979246,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py",
+                    "lineno": 69,
+                    "message": "assert <function QuickReactionGame.valid_pressed at 0x7a9d01629360> == valid_pressed\n +  where <function QuickReactionGame.valid_pressed at 0x7a9d01629360> = <gpiozero.Button object on pin GPIO14, pull_up=True, is_active=False>.when_pressed\n +    where <gpiozero.Button object on pin GPIO14, pull_up=True, is_active=False> = <examples.gpiozero.apps.app_5.src.quick_reaction_game.QuickReactionGame object at 0x7a9d01480520>.left_button\n +  and   valid_pressed = <examples.gpiozero.apps.app_5.src.quick_reaction_game.QuickReactionGame object at 0x7a9d01480520>.valid_pressed"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py",
+                        "lineno": 69,
+                        "message": "AssertionError"
+                    }
+                ],
+                "longrepr": "mock_qrg = <examples.gpiozero.apps.app_5.src.quick_reaction_game.QuickReactionGame object at 0x7a9d01480520>\n\n    def test_start_round_sets_buttons_valid(mock_qrg): # Test to check start_round sets button's valid press functions\n        mock_qrg.start_round()\n>       assert mock_qrg.left_button.when_pressed == mock_qrg.valid_pressed\nE       assert <function QuickReactionGame.valid_pressed at 0x7a9d01629360> == valid_pressed\nE        +  where <function QuickReactionGame.valid_pressed at 0x7a9d01629360> = <gpiozero.Button object on pin GPIO14, pull_up=True, is_active=False>.when_pressed\nE        +    where <gpiozero.Button object on pin GPIO14, pull_up=True, is_active=False> = <examples.gpiozero.apps.app_5.src.quick_reaction_game.QuickReactionGame object at 0x7a9d01480520>.left_button\nE        +  and   valid_pressed = <examples.gpiozero.apps.app_5.src.quick_reaction_game.QuickReactionGame object at 0x7a9d01480520>.valid_pressed\n\nexamples/gpiozero/apps/app_5/generated_tests/test_QuickReactionGame_properties_0.py:69: AssertionError"
+            },
+            "teardown": {
+                "duration": 0.00020611000945791602,
+                "outcome": "passed"
+            }
+        }
+    ]
+}

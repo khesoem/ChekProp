@@ -5,7 +5,7 @@ from time import sleep
 
 from gpiozero import *
 
-def test_():
+def test_leds_value():
     # Create a MockFactory and use it as pin_factory on Device
     Device.pin_factory = MockFactory(pin_class=MockPWMPin)
 
