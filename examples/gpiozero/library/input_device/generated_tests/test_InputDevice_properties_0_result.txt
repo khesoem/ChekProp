@@ -1,0 +1,30 @@
+{
+    "created": 1739800705.749246,
+    "duration": 0.16730856895446777,
+    "exitcode": 2,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "total": 0,
+        "collected": 0
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_0.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_0.py",
+            "outcome": "failed",
+            "result": [],
+            "longrepr": "ImportError while importing test module '/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_0.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_0.py:2: in <module>\n    from gpiozero.pins import \\\nE   ImportError: cannot import name 'pin_factory' from 'gpiozero.pins' (/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py)"
+        }
+    ],
+    "tests": []
+}
