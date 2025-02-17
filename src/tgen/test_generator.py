@@ -5,7 +5,7 @@ from .prompt_generator import PromptGenerator
 
 class TestGenerator:
     def __init__(self, model: str, improvement_iterations: int, prompt_type: PromptType,
-                 temp: float, sample_size: int, read_from_cache: bool, save_to_cache: bool):
+                 temp: float, sample_size: int, read_from_cache: bool, save_to_cache: bool, for_app: bool):
         self.model = model
         self.improvement_iterations = improvement_iterations
         self.prompt_type = prompt_type
@@ -13,6 +13,7 @@ class TestGenerator:
         self.sample_size = sample_size
         self.read_from_cache = read_from_cache
         self.save_to_cache = save_to_cache
+        self.for_app = for_app
 
     @staticmethod
     def extract_code_from_llm_response(response: str) -> str:
@@ -22,7 +23,7 @@ class TestGenerator:
                             test_file: str, test_methods: str) -> str:
         gemini = GeminiFlashLite2(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
 
-        prompt_generator = PromptGenerator(self.prompt_type, self.temp, self.sample_size, self.model)
+        prompt_generator = PromptGenerator(self.prompt_type, self.temp, self.sample_size, self.model, self.for_app)
         initial_prompt = prompt_generator.generate_initial_prompt(root_dir, src_file, src_class, test_file, test_methods)
 
         gemini_response = gemini.get_response(initial_prompt).samples[0].content

@@ -27,8 +27,8 @@ def get_args():
     parser.add_argument(
         "-sf",
         "--src_file",
-        help="Path to the source file to be tested, relative to the root",
-        required=True,
+        help="Path to the source file to be tested, relative to the root. Set iff you are generating tests for an app",
+        required=False,
     )
 
     parser.add_argument(
@@ -125,31 +125,39 @@ def get_args():
         required=False
     )
 
+    parser.add_argument(
+        "-lsf",
+        "--lib_src_file",
+        help="Absolute path to the library source file to be tested. Set iff you want to generate tests for the library",
+        required=False,
+    )
+
     args = parser.parse_args()
 
     return (args.root_dir, args.src_file, args.src_class, args.output_path, args.test_file, args.test_methods,
             args.improvement_iterations, args.sample_size, args.temperature, args.prompt_type, args.model,
-            args.read_from_cache, args.save_to_cache)
+            args.read_from_cache, args.save_to_cache, args.lib_src_file)
 
 
 def main() -> None:
 
     (root_dir, src_file, src_class, output_path, test_file, test_methods, improvement_iterations, sample_size, temp,
-        prompt_type, model, read_from_cache, save_to_cache) = get_args()
+        prompt_type, model, read_from_cache, save_to_cache, lib_src_file) = get_args()
 
     logging.info(f"Running with root_dir: {root_dir}, src_file: {src_file}, src_class: {src_class},"
                     f" output_path: {output_path}, test_file: {test_file}, test_methods: {test_methods},"
                     f" improvement_iterations: {improvement_iterations}, sample_size: {sample_size},"
                     f" temperature: {temp}, prompt_type: {prompt_type}, model: {model},"
-                    f" read_from_cache: {read_from_cache}, save_to_cache: {save_to_cache}")
+                    f" read_from_cache: {read_from_cache}, save_to_cache: {save_to_cache} lib_src_file: {lib_src_file}")
 
     test_generator = TestGenerator(model, improvement_iterations, prompt_type, temp, sample_size,
-                                   read_from_cache, save_to_cache)
+                                   read_from_cache, save_to_cache, lib_src_file is None)
 
-    report_generated_test(output_path, root_dir, src_class, src_file, test_file, test_generator, test_methods)
+    report_generated_test(output_path, root_dir, lib_src_file if lib_src_file else src_file,
+                          src_class, test_file, test_generator, test_methods)
 
 
-def report_generated_test(output_path, root_dir, src_class, src_file, test_file, test_generator, test_methods):
+def report_generated_test(output_path, root_dir, src_file, src_class, test_file, test_generator, test_methods):
     full_output_path = str(os.path.join(root_dir, output_path))
     test_cmn_filename = f'test_{src_class}_properties_'
     old_tests = [f for f in os.listdir(full_output_path) if os.path.isfile(os.path.join(full_output_path, f))

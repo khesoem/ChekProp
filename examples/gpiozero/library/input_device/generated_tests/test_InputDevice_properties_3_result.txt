@@ -1,0 +1,483 @@
+{
+    "created": 1739814201.8819573,
+    "duration": 5.417780637741089,
+    "exitcode": 1,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "passed": 4,
+        "failed": 5,
+        "total": 9,
+        "collected": 9
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_pull_up_affects_pin_pull",
+                    "type": "Function",
+                    "lineno": 38
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_pull_up_none_affects_pin_pull",
+                    "type": "Function",
+                    "lineno": 48
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_active_state_affects_is_active_basic",
+                    "type": "Function",
+                    "lineno": 53
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_is_active_reflects_pin_state_and_pull_up",
+                    "type": "Function",
+                    "lineno": 66
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_is_active_reflects_pin_state_with_active_state",
+                    "type": "Function",
+                    "lineno": 75
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_initialization_sets_pin_function",
+                    "type": "Function",
+                    "lineno": 81
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_repr_contains_expected_values",
+                    "type": "Function",
+                    "lineno": 87
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_closed_repr",
+                    "type": "Function",
+                    "lineno": 98
+                },
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_close_releases_pin",
+                    "type": "Function",
+                    "lineno": 103
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_pull_up_affects_pin_pull",
+            "lineno": 38,
+            "outcome": "passed",
+            "keywords": [
+                "test_pull_up_affects_pin_pull",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.004690167028456926,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.012398285965900868,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.001055754953995347,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_pull_up_none_affects_pin_pull",
+            "lineno": 48,
+            "outcome": "passed",
+            "keywords": [
+                "test_pull_up_none_affects_pin_pull",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.001272480993065983,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.006758368981536478,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0005010059685446322,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_active_state_affects_is_active_basic",
+            "lineno": 53,
+            "outcome": "failed",
+            "keywords": [
+                "test_active_state_affects_is_active_basic",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0009468080243095756,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 1.1938054279889911,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                    "lineno": 55,
+                    "message": "exceptiongroup.ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+                },
+                "longrepr": "Traceback (most recent call last):\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/runner.py\", line 341, in from_call\n    result: TResult | None = func()\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/runner.py\", line 242, in <lambda>\n    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_hooks.py\", line 513, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 182, in _multicall\n    return outcome.get_result()\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_result.py\", line 100, in get_result\n    raise exc.with_traceback(exc.__traceback__)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/threadexception.py\", line 92, in pytest_runtest_call\n    yield from thread_exception_runtest_hook()\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/threadexception.py\", line 68, in thread_exception_runtest_hook\n    yield\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/unraisableexception.py\", line 95, in pytest_runtest_call\n    yield from unraisable_exception_runtest_hook()\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/unraisableexception.py\", line 70, in unraisable_exception_runtest_hook\n    yield\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/logging.py\", line 846, in pytest_runtest_call\n    yield from self._runtest_for(item, \"call\")\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/logging.py\", line 829, in _runtest_for\n    yield\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/capture.py\", line 880, in pytest_runtest_call\n    return (yield)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    teardown.throw(outcome._exception)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/skipping.py\", line 257, in pytest_runtest_call\n    return (yield)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 103, in _multicall\n    res = hook_impl.function(*args)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/runner.py\", line 174, in pytest_runtest_call\n    item.runtest()\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/python.py\", line 1627, in runtest\n    self.ihook.pytest_pyfunc_call(pyfuncitem=self)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_hooks.py\", line 513, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 139, in _multicall\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/pluggy/_callers.py\", line 103, in _multicall\n    res = hook_impl.function(*args)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/_pytest/python.py\", line 159, in pytest_pyfunc_call\n    result = testfunction(**testargs)\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py\", line 55, in test_active_state_affects_is_active_basic\n    def test_active_state_affects_is_active_basic(active_state):\n  File \"/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/hypothesis/core.py\", line 1829, in wrapped_test\n    raise the_error_hypothesis_found\nexceptiongroup.ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+            },
+            "teardown": {
+                "duration": 0.000632293988019228,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_is_active_reflects_pin_state_and_pull_up",
+            "lineno": 66,
+            "outcome": "failed",
+            "keywords": [
+                "test_is_active_reflects_pin_state_and_pull_up",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0009471119847148657,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.8360484950244427,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                    "lineno": 76,
+                    "message": "gpiozero.exc.PinSetInput: cannot set state of pin GPIO4"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 68,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 70,
+                        "message": "in test_is_active_reflects_pin_state_and_pull_up"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py",
+                        "lineno": 324,
+                        "message": "in <lambda>"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                        "lineno": 76,
+                        "message": "PinSetInput"
+                    }
+                ],
+                "longrepr": "@given(st.booleans(), st.booleans())\n>   def test_is_active_reflects_pin_state_and_pull_up(pull_up, pin_state):\n\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:68: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:70: in test_is_active_reflects_pin_state_and_pull_up\n    device.pin.state = pin_state\n.venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py:324: in <lambda>\n    lambda self, value: self._set_state(value),\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = GPIO4, value = False\n\n    def _set_state(self, value):\n        if self._function == 'input':\n>           raise PinSetInput(f'cannot set state of pin {self!r}')\nE           gpiozero.exc.PinSetInput: cannot set state of pin GPIO4\n\n.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py:76: PinSetInput"
+            },
+            "teardown": {
+                "duration": 0.0015501219895668328,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_is_active_reflects_pin_state_with_active_state",
+            "lineno": 75,
+            "outcome": "failed",
+            "keywords": [
+                "test_is_active_reflects_pin_state_with_active_state",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0008008870063349605,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.8371869960101321,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                    "lineno": 76,
+                    "message": "gpiozero.exc.PinSetInput: cannot set state of pin GPIO4"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 77,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 79,
+                        "message": "in test_is_active_reflects_pin_state_with_active_state"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py",
+                        "lineno": 324,
+                        "message": "in <lambda>"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                        "lineno": 76,
+                        "message": "PinSetInput"
+                    }
+                ],
+                "longrepr": "@given(st.booleans(), st.sampled_from([0, 1]))\n>   def test_is_active_reflects_pin_state_with_active_state(active_state, pin_state):\n\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:77: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:79: in test_is_active_reflects_pin_state_with_active_state\n    device.pin.state = pin_state\n.venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py:324: in <lambda>\n    lambda self, value: self._set_state(value),\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = GPIO4, value = 0\n\n    def _set_state(self, value):\n        if self._function == 'input':\n>           raise PinSetInput(f'cannot set state of pin {self!r}')\nE           gpiozero.exc.PinSetInput: cannot set state of pin GPIO4\n\n.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py:76: PinSetInput"
+            },
+            "teardown": {
+                "duration": 0.0005896740476600826,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_initialization_sets_pin_function",
+            "lineno": 81,
+            "outcome": "failed",
+            "keywords": [
+                "test_initialization_sets_pin_function",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.000782842980697751,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 1.1945811670157127,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                    "lineno": 104,
+                    "message": "gpiozero.exc.PinFixedPull: GPIO2 has a fixed pull resistor"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 83,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 84,
+                        "message": "in test_initialization_sets_pin_function"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/devices.py",
+                        "lineno": 108,
+                        "message": "in __call__"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/input_devices.py",
+                        "lineno": 84,
+                        "message": "in __init__"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py",
+                        "lineno": 357,
+                        "message": "in <lambda>"
+                    },
+                    {
+                        "path": ".venv/lib/python3.10/site-packages/gpiozero/pins/mock.py",
+                        "lineno": 104,
+                        "message": "PinFixedPull"
+                    }
+                ],
+                "longrepr": "@given(st.booleans(), st.integers(min_value=1, max_value=10))\n>   def test_initialization_sets_pin_function(pull_up, pin):\n\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:83: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:84: in test_initialization_sets_pin_function\n    with InputDevice(pin, pull_up=pull_up) as device:\n.venv/lib/python3.10/site-packages/gpiozero/devices.py:108: in __call__\n    self = super().__call__(*args, **kwargs)\n.venv/lib/python3.10/site-packages/gpiozero/input_devices.py:84: in __init__\n    self.pin.pull = pull\n.venv/lib/python3.10/site-packages/gpiozero/pins/__init__.py:357: in <lambda>\n    lambda self, value: self._set_pull(value),\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = GPIO2, value = 'down'\n\n    def _set_pull(self, value):\n        if self.function != 'input':\n            raise PinFixedPull(f'cannot set pull on non-input pin {self!r}')\n        if self.info.pull and value != self.info.pull:\n>           raise PinFixedPull(f'{self!r} has a fixed pull resistor')\nE           gpiozero.exc.PinFixedPull: GPIO2 has a fixed pull resistor\n\n.venv/lib/python3.10/site-packages/gpiozero/pins/mock.py:104: PinFixedPull"
+            },
+            "teardown": {
+                "duration": 0.0007645260193385184,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_repr_contains_expected_values",
+            "lineno": 87,
+            "outcome": "passed",
+            "keywords": [
+                "test_repr_contains_expected_values",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.0008055000216700137,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0033892180072143674,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0004226239980198443,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_closed_repr",
+            "lineno": 98,
+            "outcome": "passed",
+            "keywords": [
+                "test_closed_repr",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.000767407997045666,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.002017070015426725,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0004517560009844601,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py::test_close_releases_pin",
+            "lineno": 103,
+            "outcome": "failed",
+            "keywords": [
+                "test_close_releases_pin",
+                "is_hypothesis_test",
+                "_hypothesis_internal_use_seed",
+                "_hypothesis_internal_use_settings",
+                "_hypothesis_internal_use_reproduce_failure",
+                "hypothesis",
+                "test_InputDevice_properties_3.py",
+                "generated_tests",
+                "input_device",
+                "library",
+                "gpiozero",
+                "examples",
+                "pbt-cps",
+                ""
+            ],
+            "setup": {
+                "duration": 0.001180710969492793,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.07205968396738172,
+                "outcome": "failed",
+                "crash": {
+                    "path": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps/examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                    "lineno": 108,
+                    "message": "AttributeError: 'NoneType' object has no attribute 'function'"
+                },
+                "traceback": [
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 105,
+                        "message": ""
+                    },
+                    {
+                        "path": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py",
+                        "lineno": 108,
+                        "message": "AttributeError"
+                    }
+                ],
+                "longrepr": "@given(st.booleans())\n>   def test_close_releases_pin(pull_up):\n\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:105: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npull_up = False\n\n    @given(st.booleans())\n    def test_close_releases_pin(pull_up):\n        device = InputDevice(8, pull_up=pull_up)\n        device.close()\n>       assert device.pin.function is None\nE       AttributeError: 'NoneType' object has no attribute 'function'\n\nexamples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_3.py:108: AttributeError"
+            },
+            "teardown": {
+                "duration": 0.0005487299640662968,
+                "outcome": "passed"
+            }
+        }
+    ]
+}

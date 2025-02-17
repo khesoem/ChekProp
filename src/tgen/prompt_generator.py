@@ -1,4 +1,5 @@
 import ast
+from pathlib import Path
 
 from src.config import PromptType
 from src.llm.invocation import Prompt
@@ -6,13 +7,14 @@ from os import path
 from src.config import llm
 
 class PromptGenerator:
-    def __init__(self, prompt_type: PromptType, temp: float, sample_size: int, model: str):
+    def __init__(self, prompt_type: PromptType, temp: float, sample_size: int, model: str, for_app: bool):
         self.prompt_type = prompt_type
-        with open(path.join(llm['prompt-template-dir'], f'{prompt_type}.txt'), 'r') as f:
+        with open(path.join(llm['prompt-template-dir'], f'{"" if for_app else "LIB_"}{prompt_type}.txt'), 'r') as f:
             self.prompt_template = f.read()
         self.temp = temp
         self.sample_size = sample_size
         self.model = model
+        self.for_app = for_app
 
     def get_initial_prompt_txt(self, mod_name: str, cl_code: str, class_name: str, unittests_code: str) -> str:
         if (('mod_name' in self.prompt_template and not mod_name)
@@ -26,9 +28,14 @@ class PromptGenerator:
 
     def generate_initial_prompt(self, root_dir: str, src_file: str, class_name: str, test_file: str,
                                 test_methods: str) -> Prompt:
-        mod_name = src_file.replace('.py', '').replace('/', '.')
+        if self.for_app:
+            mod_name = src_file.replace('.py', '').replace('/', '.')
+            src_path = path.join(root_dir, src_file)
+        else:
+            mod_name = 'invalid'
+            src_path = Path(src_file)
 
-        with open(path.join(root_dir, src_file), 'r') as f:
+        with open(src_path, 'r') as f:
             node = ast.parse(f.read())
             imports = [n for n in node.body if isinstance(n, ast.Import) or isinstance(n, ast.ImportFrom)]
             cl = next(n for n in node.body if isinstance(n, ast.ClassDef) and n.name == class_name)
