@@ -14,7 +14,8 @@ dependencies = [
     "rpi-gpio (>=0.7.1,<0.8.0)",
     "requests (>=2.32.3,<3.0.0)",
     "openai (>=1.61.1,<2.0.0)",
-    "pytest-json-report (>=1.5.0,<2.0.0)"
+    "pytest-json-report (>=1.5.0,<2.0.0)",
+    "mutpy (>=0.6.1,<0.7.0)"
 ]
 
 

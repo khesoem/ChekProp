@@ -1,7 +1,7 @@
 from io import StringIO
 from unittest.mock import patch
 from gpiozero.pins.mock import MockFactory
-from src.laser_tripwire import LaserTripwire  # Assuming the code is in src.laser_tripwire
+from examples.gpiozero.apps.app_1.src.laser_tripwire import LaserTripwire  # Assuming the code is in src.laser_tripwire
 from time import sleep
 from gpiozero import Device
 from hypothesis import given, settings
