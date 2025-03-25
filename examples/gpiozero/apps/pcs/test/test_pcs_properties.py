@@ -7,6 +7,7 @@ from examples.gpiozero.apps.pcs.src.pcs import MockSystem
 # 3. Cylinder B should always follow the correct pattern of up and down movement.
 
 # Test 1: Cylinder A and B's location should always be within the range [0, 2]
+
 @given(
     total_time=st.floats(min_value=0.1, max_value=100),
     cylinder_interval=st.floats(min_value=0.1, max_value=5),

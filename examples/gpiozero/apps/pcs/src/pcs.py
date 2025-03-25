@@ -11,6 +11,8 @@ When the vertical cylinder is at bottom, the horizontal cylinder should not move
 The movement should follow this pattern: vertical cylinder moves down, vertical cylinder moves up, horizontal cylinder moves right, vertical cylinder moves down, vertical cylinder moves up, horizontal cylinder moves left.
 """
 
+sleep_factor = 0.1
+
 import math
 import threading
 from time import sleep
@@ -42,7 +44,7 @@ class Cylinder:
                 if self.is_on_border():
                     self.motion = 0 # Stop movement
                     self.just_stopped = True
-            sleep(cylinder_interval)
+            sleep(cylinder_interval * sleep_factor)
 
     def is_on_border(self):
         return self.is_at_end() or self.is_at_start()
@@ -66,7 +68,7 @@ class ControllerA:
             if self.other_cylinder.just_stopped and self.other_cylinder.is_at_start():
                 self.controlling_cylinder.trigger_motion()
                 self.other_cylinder.just_stopped = False
-            sleep(control_interval)
+            sleep(control_interval * sleep_factor)
 
 class ControllerB:
     """
@@ -83,7 +85,7 @@ class ControllerB:
                 self.controlling_cylinder.trigger_motion()
                 self.other_cylinder.just_stopped = False
             just_started = False
-            sleep(control_interval)
+            sleep(control_interval * sleep_factor)
 
 class SystemState:
     def __init__(self, cylinder_a_loc: int, cylinder_a_motion: int, cylinder_b_location: int, cylinder_b_motion: int):
@@ -128,7 +130,7 @@ class MockSystem:
         collected_states = []
         for i in range(math.ceil(self.total_time / self.mock_interval) + 1):
             collected_states.append(self.collect_state())
-            sleep(self.mock_interval)
+            sleep(self.mock_interval * sleep_factor)
 
         cylinder_a_thread.join()
         control_a_thread.join()

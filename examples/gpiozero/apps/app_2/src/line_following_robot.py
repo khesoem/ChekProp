@@ -1,4 +1,5 @@
 from gpiozero import Robot, LineSensor
+from gpiozero.tools import zip_values
 
 class LineFollowingRobot(Robot):
     def __init__(self, left, right, left_seonsor_pin=17, right_sensor_pin=27, speed=0.65):
@@ -23,7 +24,7 @@ class LineFollowingRobot(Robot):
                 left_mot = -1
             if left_detect == 1 and right_detect == 0:
                 right_mot = -1
-            # print(r, l)
+            print(right_mot, left_mot)
             yield right_mot * self.speed, left_mot * self.speed
 
     def stop(self):

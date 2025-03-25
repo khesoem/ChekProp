@@ -20,7 +20,6 @@ class PresenceIndicator:
 			r = requests.get(self.url)
 			data = r.json()
 			people = data['number']
-			print(people)
 			self.leds.off()
 			self.leds.value = people / 10
 			sleep(self.delay)

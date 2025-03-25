@@ -3,6 +3,8 @@ from time import sleep
 import random
 import math
 
+sleep_factor = 0.1
+
 class Environment:
     def __init__(self, initial_temp: int = None):
         self.temp = initial_temp if initial_temp is not None else random.randint(20, 24)
@@ -24,7 +26,7 @@ class TempSensor:
     def start_temp_collection(self, total_time: float, sensor_interval: float):
         for i in range(math.floor(total_time / sensor_interval)):
             self.temp = self.env.fetch_temp()
-            sleep(sensor_interval)
+            sleep(sensor_interval * sleep_factor)
 
 class PWMOutputDevice:
     def __init__(self):
@@ -67,7 +69,7 @@ class Controller:
                 self.hc_unit.activate_cooler()
             else:
                 self.hc_unit.activate_heater()
-            sleep(control_interval)
+            sleep(control_interval * sleep_factor)
 
 class SystemState:
     def __init__(self, temp: float, cooler_state: int, heater_state: int, outside_air_temp: int):
@@ -100,6 +102,8 @@ class MockRoom:
         sensor_thread.start()
         control_thread.start()
 
+        sleep(sleep_factor)
+
         collected_states = []
         for i in range(self.total_time):
             cur_temp = self.env.fetch_temp()
@@ -107,8 +111,8 @@ class MockRoom:
             cooler_value = self.hc_unit.cooler.value
             heater_value = self.hc_unit.heater.value
             collected_states.append(SystemState(cur_temp, cooler_value, heater_value, outside_air_temp))
-            self.env.set_temp(cur_temp + outside_air_temp + heater_value - cooler_value)
-            sleep(1)
+            self.env.set_temp(cur_temp + outside_air_temp * 0.45 + heater_value - cooler_value)
+            sleep(sleep_factor)
 
         sensor_thread.join()
         control_thread.join()
