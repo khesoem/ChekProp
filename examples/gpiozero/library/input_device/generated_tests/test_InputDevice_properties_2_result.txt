@@ -1,0 +1,30 @@
+{
+    "created": 1739979582.1025283,
+    "duration": 0.29469776153564453,
+    "exitcode": 2,
+    "root": "/home/khesoem/MDU/projects/pbt-cps/pbt-cps-repo/pbt-cps",
+    "environment": {},
+    "summary": {
+        "total": 0,
+        "collected": 0
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_2.py",
+                    "type": "Module"
+                }
+            ]
+        },
+        {
+            "nodeid": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_2.py",
+            "outcome": "failed",
+            "result": [],
+            "longrepr": "examples/gpiozero/library/input_device/generated_tests/test_InputDevice_properties_2.py:57: in <module>\n    active_state=st.booleans() if pull_up is None else st.none(),\nE   NameError: name 'pull_up' is not defined"
+        }
+    ],
+    "tests": []
+}
