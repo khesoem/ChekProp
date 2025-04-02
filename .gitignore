@@ -20,5 +20,5 @@
 cache/
 .hypothesis/
 logs/
-#generated_tests/
+generated_tests/
 htmlcov/
