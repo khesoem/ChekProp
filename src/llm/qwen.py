@@ -4,7 +4,7 @@ from .invocation import *
 from .llm_adapter import LLMAdapter
 
 
-class MinMaxM2(LLMAdapter):
+class Qwen3Coder(LLMAdapter):
     def __init__(self, read_from_cache: bool=True, save_to_cache: bool=True):
         super().__init__(read_from_cache=read_from_cache, save_to_cache=save_to_cache)
         self.client = OpenAI(
@@ -18,7 +18,7 @@ class MinMaxM2(LLMAdapter):
             return cached_invocation.response
 
         completion = self.client.chat.completions.create(
-            model="minimax/minimax-m2:free",
+            model="qwen/qwen3-coder:free",
             messages=[m.__dict__ for m in prompt.messages]
         )
         response = Response([Response.Sample(c.message.content)

@@ -1,6 +1,6 @@
 from src.config import *
 from src.llm.gemini import GeminiFlashLite2
-from src.llm.minmax import MinMaxM2
+from src.llm.qwen import Qwen3Coder
 from src.llm.invocation import Prompt
 from .prompt_generator import PromptGenerator
 from src.llm.llm_adapter import LLMAdapter
@@ -37,7 +37,7 @@ class TestGenerator:
                 gemini = GeminiFlashLite2(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
                 return self.generate_pbt_with_llm(root_dir, src_file, src_class, test_file, test_methods, gemini)
             case 'minimax/minimax-m2:free':
-                minmax = MinMaxM2(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
-                return self.generate_pbt_with_llm(root_dir, src_file, src_class, test_file, test_methods, minmax)
+                qwen3coder = Qwen3Coder(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
+                return self.generate_pbt_with_llm(root_dir, src_file, src_class, test_file, test_methods, qwen3coder)
             case _:
                 raise ValueError(f"Model {self.model} is not supported")

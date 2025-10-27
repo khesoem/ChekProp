@@ -14,8 +14,8 @@ llm = {
     'default-temp': 0,
     'default-sample-size': 1,
     'default-improvement-iterations': 0,
-    'valid-models': ['google/gemini-2.0-flash-lite-preview-02-05:free', 'minimax/minimax-m2:free'],
-    'default-model': 'minimax/minimax-m2:free',
+    'valid-models': ['google/gemini-2.0-flash-lite-preview-02-05:free', 'qwen/qwen3-coder:free'],
+    'default-model': 'qwen/qwen3-coder:free',
     'max-iterations': 10,
     'prompt-template-dir': 'prompt_templates',
 }
