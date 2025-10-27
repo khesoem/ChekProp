@@ -21,4 +21,4 @@ For example:
 ```
 For this example, the generated test and its output will be saved at `examples/gpiozero/apps/app_1/generated_tests/` directory. Note that previous experiment results, which used the `gemini-2.0-flash-lite-preview-02-05:free` model are already saved in that directory. New generated tests will be saved in new test files.
 
-As `gemini-2.0-flash-lite-preview-02-05:free'` is no longer available on OpenRouter, ChekProp now uses `qwen/qwen3-coder:free` as the default model.
+As `gemini-2.0-flash-lite-preview-02-05:free'` is no longer available on OpenRouter, ChekProp now uses `minimax/minimax-m2:free` as the default model.
