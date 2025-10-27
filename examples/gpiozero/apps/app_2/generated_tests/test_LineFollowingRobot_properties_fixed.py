@@ -27,7 +27,6 @@ from hypothesis import settings
     right_sensor_value=st.integers(min_value=0, max_value=1),
     speed=st.floats(min_value=0.1, max_value=1.0)
 )
-@settings(deadline=10000, max_examples=1)
 def test_motor_control_based_on_sensor_values(left_sensor_value, right_sensor_value, speed):
     Device.pin_factory = MockFactory()
     with LineFollowingRobot(Motor(2, 3, enable=4, pwm=False), Motor(5, 6, enable=7, pwm=False), left_seonsor_pin=8, right_sensor_pin=9, speed=speed) as lfr:

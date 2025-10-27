@@ -40,3 +40,6 @@ class LLMAdapter:
         cache_file = os.path.join(self.cache_dir, f"{prompt_hash}-{len(cached_files)}.json")
         with open(cache_file, 'w') as f:
             json.dump(invocation, f, default=lambda o: o.__dict__)
+
+    def get_response(self, prompt: Prompt):
+        raise NotImplementedError("This method should be implemented by subclasses")
