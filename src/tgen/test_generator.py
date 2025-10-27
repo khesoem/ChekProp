@@ -36,7 +36,7 @@ class TestGenerator:
             case 'google/gemini-2.0-flash-lite-preview-02-05:free':
                 gemini = GeminiFlashLite2(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
                 return self.generate_pbt_with_llm(root_dir, src_file, src_class, test_file, test_methods, gemini)
-            case 'minimax/minimax-m2:free':
+            case 'qwen/qwen3-coder:free':
                 qwen3coder = Qwen3Coder(read_from_cache=self.read_from_cache, save_to_cache=self.save_to_cache)
                 return self.generate_pbt_with_llm(root_dir, src_file, src_class, test_file, test_methods, qwen3coder)
             case _:
